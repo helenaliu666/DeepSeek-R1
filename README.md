@@ -1,24 +1,24 @@
-# DeepSeek-R1
+# HelenaSeek-R1
 <!-- markdownlint-disable first-line-h1 -->
 <!-- markdownlint-disable html -->
 <!-- markdownlint-disable no-duplicate-header -->
 
 <div align="center">
-  <img src="https://github.com/deepseek-ai/DeepSeek-V2/blob/main/figures/logo.svg?raw=true" width="60%" alt="DeepSeek-R1" />
+  <img src="https://github.com/deepseek-ai/DeepSeek-V2/blob/main/figures/logo.svg?raw=true" width="60%" alt="HelenaSeek-R1" />
 </div>
 <hr>
 <div align="center" style="line-height: 1;">
   <a href="https://www.deepseek.com/" target="_blank"><img alt="Homepage"
     src="https://github.com/deepseek-ai/DeepSeek-V2/blob/main/figures/badge.svg?raw=true"/></a>
   <a href="https://chat.deepseek.com/" target="_blank"><img alt="Chat"
-    src="https://img.shields.io/badge/🤖%20Chat-DeepSeek%20R1-536af5?color=536af5&logoColor=white"/></a>
+    src="https://img.shields.io/badge/🤖%20Chat-HelenaSeek%20R1-536af5?color=536af5&logoColor=white"/></a>
   <a href="https://huggingface.co/deepseek-ai" target="_blank"><img alt="Hugging Face"
-    src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-DeepSeek%20AI-ffc107?color=ffc107&logoColor=white"/></a>
+    src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-HelenaSeek%20AI-ffc107?color=ffc107&logoColor=white"/></a>
   <br>
   <a href="https://discord.gg/Tc7c45Zzu5" target="_blank"><img alt="Discord"
-    src="https://img.shields.io/badge/Discord-DeepSeek%20AI-7289da?logo=discord&logoColor=white&color=7289da"/></a>
+    src="https://img.shields.io/badge/Discord-HelenaSeek%20AI-7289da?logo=discord&logoColor=white&color=7289da"/></a>
   <a href="https://github.com/deepseek-ai/DeepSeek-V2/blob/main/figures/qr.jpeg?raw=true" target="_blank"><img alt="WeChat"
-    src="https://img.shields.io/badge/WeChat-DeepSeek%20AI-brightgreen?logo=wechat&logoColor=white"/></a>
+    src="https://img.shields.io/badge/WeChat-HelenaSeek%20AI-brightgreen?logo=wechat&logoColor=white"/></a>
   <a href="https://twitter.com/deepseek_ai" target="_blank"><img alt="Twitter Follow"
     src="https://img.shields.io/badge/Twitter-deepseek_ai-white?logo=x&logoColor=white"/></a>
   <br>
@@ -30,15 +30,15 @@
 
 ## 1. Introduction
 
-We introduce our first-generation reasoning models, DeepSeek-R1-Zero and DeepSeek-R1. 
-DeepSeek-R1-Zero, a model trained via large-scale reinforcement learning (RL) without supervised fine-tuning (SFT) as a preliminary step, demonstrated remarkable performance on reasoning.
-With RL, DeepSeek-R1-Zero naturally emerged with numerous powerful and interesting reasoning behaviors.
-However, DeepSeek-R1-Zero encounters challenges such as endless repetition, poor readability, and language mixing. To address these issues and further enhance reasoning performance,
-we introduce DeepSeek-R1, which incorporates cold-start data before RL.
-DeepSeek-R1 achieves performance comparable to OpenAI-o1 across math, code, and reasoning tasks. 
-To support the research community, we have open-sourced DeepSeek-R1-Zero, DeepSeek-R1, and six dense models distilled from DeepSeek-R1 based on Llama and Qwen. DeepSeek-R1-Distill-Qwen-32B outperforms OpenAI-o1-mini across various benchmarks, achieving new state-of-the-art results for dense models.
+We introduce our first-generation reasoning models, HelenaSeek-R1-Zero and HelenaSeek-R1. 
+HelenaSeek-R1-Zero, a model trained via large-scale reinforcement learning (RL) without supervised fine-tuning (SFT) as a preliminary step, demonstrated remarkable performance on reasoning.
+With RL, HelenaSeek-R1-Zero naturally emerged with numerous powerful and interesting reasoning behaviors.
+However, HelenaSeek-R1-Zero encounters challenges such as endless repetition, poor readability, and language mixing. To address these issues and further enhance reasoning performance,
+we introduce HelenaSeek-R1, which incorporates cold-start data before RL.
+HelenaSeek-R1 achieves performance comparable to OpenAI-o1 across math, code, and reasoning tasks. 
+To support the research community, we have open-sourced HelenaSeek-R1-Zero, HelenaSeek-R1, and six dense models distilled from HelenaSeek-R1 based on Llama and Qwen. HelenaSeek-R1-Distill-Qwen-32B outperforms OpenAI-o1-mini across various benchmarks, achieving new state-of-the-art results for dense models.
 
-**NOTE: Before running DeepSeek-R1 series models locally, we kindly recommend reviewing the [Usage Recommendation](#usage-recommendations) section.**
+**NOTE: Before running HelenaSeek-R1 series models locally, we kindly recommend reviewing the [Usage Recommendation](#usage-recommendations) section.**
 
 <p align="center">
   <img width="80%" src="figures/benchmark.jpg">
@@ -50,60 +50,60 @@ To support the research community, we have open-sourced DeepSeek-R1-Zero, DeepSe
 
 **Post-Training: Large-Scale Reinforcement Learning on the Base Model**
 
--  We directly apply reinforcement learning (RL) to the base model without relying on supervised fine-tuning (SFT) as a preliminary step. This approach allows the model to explore chain-of-thought (CoT) for solving complex problems, resulting in the development of DeepSeek-R1-Zero. DeepSeek-R1-Zero demonstrates capabilities such as self-verification, reflection, and generating long CoTs, marking a significant milestone for the research community. Notably, it is the first open research to validate that reasoning capabilities of LLMs can be incentivized purely through RL, without the need for SFT. This breakthrough paves the way for future advancements in this area.
+-  We directly apply reinforcement learning (RL) to the base model without relying on supervised fine-tuning (SFT) as a preliminary step. This approach allows the model to explore chain-of-thought (CoT) for solving complex problems, resulting in the development of HelenaSeek-R1-Zero. HelenaSeek-R1-Zero demonstrates capabilities such as self-verification, reflection, and generating long CoTs, marking a significant milestone for the research community. Notably, it is the first open research to validate that reasoning capabilities of LLMs can be incentivized purely through RL, without the need for SFT. This breakthrough paves the way for future advancements in this area.
 
--   We introduce our pipeline to develop DeepSeek-R1. The pipeline incorporates two RL stages aimed at discovering improved reasoning patterns and aligning with human preferences, as well as two SFT stages that serve as the seed for the model's reasoning and non-reasoning capabilities.
+-   We introduce our pipeline to develop HelenaSeek-R1. The pipeline incorporates two RL stages aimed at discovering improved reasoning patterns and aligning with human preferences, as well as two SFT stages that serve as the seed for the model's reasoning and non-reasoning capabilities.
     We believe the pipeline will benefit the industry by creating better models. 
 
 ---
 
 **Distillation: Smaller Models Can Be Powerful Too**
 
--  We demonstrate that the reasoning patterns of larger models can be distilled into smaller models, resulting in better performance compared to the reasoning patterns discovered through RL on small models. The open source DeepSeek-R1, as well as its API, will benefit the research community to distill better smaller models in the future. 
-- Using the reasoning data generated by DeepSeek-R1, we fine-tuned several dense models that are widely used in the research community. The evaluation results demonstrate that the distilled smaller dense models perform exceptionally well on benchmarks. We open-source distilled 1.5B, 7B, 8B, 14B, 32B, and 70B checkpoints based on Qwen2.5 and Llama3 series to the community.
+-  We demonstrate that the reasoning patterns of larger models can be distilled into smaller models, resulting in better performance compared to the reasoning patterns discovered through RL on small models. The open source HelenaSeek-R1, as well as its API, will benefit the research community to distill better smaller models in the future. 
+- Using the reasoning data generated by HelenaSeek-R1, we fine-tuned several dense models that are widely used in the research community. The evaluation results demonstrate that the distilled smaller dense models perform exceptionally well on benchmarks. We open-source distilled 1.5B, 7B, 8B, 14B, 32B, and 70B checkpoints based on Qwen2.5 and Llama3 series to the community.
 
 ## 3. Model Downloads
 
-### DeepSeek-R1 Models
+### HelenaSeek-R1 Models
 
 <div align="center">
 
 | **Model** | **#Total Params** | **#Activated Params** | **Context Length** | **Download** |
 | :------------: | :------------: | :------------: | :------------: | :------------: |
-| DeepSeek-R1-Zero | 671B | 37B | 128K   | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/DeepSeek-R1-Zero)   |
-| DeepSeek-R1   | 671B | 37B |  128K   | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/DeepSeek-R1)   |
+| HelenaSeek-R1-Zero | 671B | 37B | 128K   | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/HelenaSeek-R1-Zero)   |
+| HelenaSeek-R1   | 671B | 37B |  128K   | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/HelenaSeek-R1)   |
 
 </div>
 
-DeepSeek-R1-Zero & DeepSeek-R1 are trained based on DeepSeek-V3-Base. 
-For more details regarding the model architecture, please refer to [DeepSeek-V3](https://github.com/deepseek-ai/DeepSeek-V3) repository.
+HelenaSeek-R1-Zero & HelenaSeek-R1 are trained based on HelenaSeek-V3-Base. 
+For more details regarding the model architecture, please refer to [HelenaSeek-V3](https://github.com/deepseek-ai/DeepSeek-V3) repository.
 
-### DeepSeek-R1-Distill Models
+### HelenaSeek-R1-Distill Models
 
 <div align="center">
 
 | **Model** | **Base Model** | **Download** |
 | :------------: | :------------: | :------------: |
-| DeepSeek-R1-Distill-Qwen-1.5B  | [Qwen2.5-Math-1.5B](https://huggingface.co/Qwen/Qwen2.5-Math-1.5B) | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B)   |
-| DeepSeek-R1-Distill-Qwen-7B  | [Qwen2.5-Math-7B](https://huggingface.co/Qwen/Qwen2.5-Math-7B) | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B)   |
-| DeepSeek-R1-Distill-Llama-8B  | [Llama-3.1-8B](https://huggingface.co/meta-llama/Llama-3.1-8B) | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B)   |
-| DeepSeek-R1-Distill-Qwen-14B   | [Qwen2.5-14B](https://huggingface.co/Qwen/Qwen2.5-14B) | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B)   |
-|DeepSeek-R1-Distill-Qwen-32B  | [Qwen2.5-32B](https://huggingface.co/Qwen/Qwen2.5-32B) | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B)   |
-| DeepSeek-R1-Distill-Llama-70B  | [Llama-3.3-70B-Instruct](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct) | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-70B)   |
+| HelenaSeek-R1-Distill-Qwen-1.5B  | [Qwen2.5-Math-1.5B](https://huggingface.co/Qwen/Qwen2.5-Math-1.5B) | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/HelenaSeek-R1-Distill-Qwen-1.5B)   |
+| HelenaSeek-R1-Distill-Qwen-7B  | [Qwen2.5-Math-7B](https://huggingface.co/Qwen/Qwen2.5-Math-7B) | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/HelenaSeek-R1-Distill-Qwen-7B)   |
+| HelenaSeek-R1-Distill-Llama-8B  | [Llama-3.1-8B](https://huggingface.co/meta-llama/Llama-3.1-8B) | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/HelenaSeek-R1-Distill-Llama-8B)   |
+| HelenaSeek-R1-Distill-Qwen-14B   | [Qwen2.5-14B](https://huggingface.co/Qwen/Qwen2.5-14B) | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/HelenaSeek-R1-Distill-Qwen-14B)   |
+|HelenaSeek-R1-Distill-Qwen-32B  | [Qwen2.5-32B](https://huggingface.co/Qwen/Qwen2.5-32B) | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/HelenaSeek-R1-Distill-Qwen-32B)   |
+| HelenaSeek-R1-Distill-Llama-70B  | [Llama-3.3-70B-Instruct](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct) | [🤗 HuggingFace](https://huggingface.co/deepseek-ai/HelenaSeek-R1-Distill-Llama-70B)   |
 
 </div>
 
-DeepSeek-R1-Distill models are fine-tuned based on open-source models, using samples generated by DeepSeek-R1.
+HelenaSeek-R1-Distill models are fine-tuned based on open-source models, using samples generated by HelenaSeek-R1.
 We slightly change their configs and tokenizers. Please use our setting to run these models.
 
 ## 4. Evaluation Results
 
-### DeepSeek-R1-Evaluation
+### HelenaSeek-R1-Evaluation
  For all our models, the maximum generation length is set to 32,768 tokens. For benchmarks requiring sampling, we use a temperature of $0.6$, a top-p value of $0.95$, and generate 64 responses per query to estimate pass@1.
 <div align="center">
 
 
-| Category | Benchmark (Metric) | Claude-3.5-Sonnet-1022 | GPT-4o 0513 | DeepSeek V3 | OpenAI o1-mini | OpenAI o1-1217 | DeepSeek R1 |
+| Category | Benchmark (Metric) | Claude-3.5-Sonnet-1022 | GPT-4o 0513 | HelenaSeek V3 | OpenAI o1-mini | OpenAI o1-1217 | HelenaSeek R1 |
 |----------|-------------------|----------------------|------------|--------------|----------------|------------|--------------|
 | | Architecture | - | - | MoE | - | - | MoE |
 | | # Activated Params | - | - | 37B | - | - | 37B |
@@ -144,59 +144,59 @@ We slightly change their configs and tokenizers. Please use our setting to run t
 | Claude-3.5-Sonnet-1022             | 16.0             | 26.7                 | 78.3            | 65.0                 | 38.9                 | 717               |
 | o1-mini                              | 63.6             | 80.0              | 90.0            | 60.0                 | 53.8                 | **1820**          |
 | QwQ-32B-Preview                              | 44.0             | 60.0                 | 90.6            | 54.5               | 41.9                 | 1316              |
-| DeepSeek-R1-Distill-Qwen-1.5B       | 28.9             | 52.7              | 83.9            | 33.8                 | 16.9                 | 954               |
-| DeepSeek-R1-Distill-Qwen-7B          | 55.5             | 83.3              | 92.8            | 49.1                 | 37.6                 | 1189              |
-| DeepSeek-R1-Distill-Qwen-14B         | 69.7             | 80.0              | 93.9            | 59.1                 | 53.1                 | 1481              |
-| DeepSeek-R1-Distill-Qwen-32B        | **72.6**         | 83.3              | 94.3            | 62.1                 | 57.2                 | 1691              |
-| DeepSeek-R1-Distill-Llama-8B         | 50.4             | 80.0              | 89.1            | 49.0                 | 39.6                 | 1205              |
-| DeepSeek-R1-Distill-Llama-70B        | 70.0             | **86.7**          | **94.5**        | **65.2**             | **57.5**             | 1633              |
+| HelenaSeek-R1-Distill-Qwen-1.5B       | 28.9             | 52.7              | 83.9            | 33.8                 | 16.9                 | 954               |
+| HelenaSeek-R1-Distill-Qwen-7B          | 55.5             | 83.3              | 92.8            | 49.1                 | 37.6                 | 1189              |
+| HelenaSeek-R1-Distill-Qwen-14B         | 69.7             | 80.0              | 93.9            | 59.1                 | 53.1                 | 1481              |
+| HelenaSeek-R1-Distill-Qwen-32B        | **72.6**         | 83.3              | 94.3            | 62.1                 | 57.2                 | 1691              |
+| HelenaSeek-R1-Distill-Llama-8B         | 50.4             | 80.0              | 89.1            | 49.0                 | 39.6                 | 1205              |
+| HelenaSeek-R1-Distill-Llama-70B        | 70.0             | **86.7**          | **94.5**        | **65.2**             | **57.5**             | 1633              |
 
 </div>
 
 
 ## 5. Chat Website & API Platform
-You can chat with DeepSeek-R1 on DeepSeek's official website: [chat.deepseek.com](https://chat.deepseek.com), and switch on the button "DeepThink"
+You can chat with HelenaSeek-R1 on HelenaSeek's official website: [chat.deepseek.com](https://chat.deepseek.com), and switch on the button "DeepThink"
 
-We also provide OpenAI-Compatible API at DeepSeek Platform: [platform.deepseek.com](https://platform.deepseek.com/)
+We also provide OpenAI-Compatible API at HelenaSeek Platform: [platform.deepseek.com](https://platform.deepseek.com/)
 
 ## 6. How to Run Locally
 
-### DeepSeek-R1 Models
+### HelenaSeek-R1 Models
 
-Please visit [DeepSeek-V3](https://github.com/deepseek-ai/DeepSeek-V3) repo for more information about running DeepSeek-R1 locally.
+Please visit [HelenaSeek-V3](https://github.com/deepseek-ai/DeepSeek-V3) repo for more information about running HelenaSeek-R1 locally.
 
 **NOTE: Hugging Face's Transformers has not been directly supported yet.**
 
-### DeepSeek-R1-Distill Models
+### HelenaSeek-R1-Distill Models
 
-DeepSeek-R1-Distill models can be utilized in the same manner as Qwen or Llama models.
+HelenaSeek-R1-Distill models can be utilized in the same manner as Qwen or Llama models.
 
 For instance, you can easily start a service using [vLLM](https://github.com/vllm-project/vllm):
 
 ```shell
-vllm serve deepseek-ai/DeepSeek-R1-Distill-Qwen-32B --tensor-parallel-size 2 --max-model-len 32768 --enforce-eager
+vllm serve deepseek-ai/HelenaSeek-R1-Distill-Qwen-32B --tensor-parallel-size 2 --max-model-len 32768 --enforce-eager
 ```
 
 You can also easily start a service using [SGLang](https://github.com/sgl-project/sglang)
 
 ```bash
-python3 -m sglang.launch_server --model deepseek-ai/DeepSeek-R1-Distill-Qwen-32B --trust-remote-code --tp 2
+python3 -m sglang.launch_server --model deepseek-ai/HelenaSeek-R1-Distill-Qwen-32B --trust-remote-code --tp 2
 ```
 
 ### Usage Recommendations
 
-**We recommend adhering to the following configurations when utilizing the DeepSeek-R1 series models, including benchmarking, to achieve the expected performance:**
+**We recommend adhering to the following configurations when utilizing the HelenaSeek-R1 series models, including benchmarking, to achieve the expected performance:**
 
 1. Set the temperature within the range of 0.5-0.7 (0.6 is recommended) to prevent endless repetitions or incoherent outputs.
 2. **Avoid adding a system prompt; all instructions should be contained within the user prompt.**
 3. For mathematical problems, it is advisable to include a directive in your prompt such as: "Please reason step by step, and put your final answer within \boxed{}."
 4. When evaluating model performance, it is recommended to conduct multiple tests and average the results.
 
-Additionally, we have observed that the DeepSeek-R1 series models tend to bypass thinking pattern (i.e., outputting "\<think\>\n\n\</think\>") when responding to certain queries, which can adversely affect the model's performance.
+Additionally, we have observed that the HelenaSeek-R1 series models tend to bypass thinking pattern (i.e., outputting "\<think\>\n\n\</think\>") when responding to certain queries, which can adversely affect the model's performance.
 **To ensure that the model engages in thorough reasoning, we recommend enforcing the model to initiate its response with "\<think\>\n" at the beginning of every output.**
 
 ### Official Prompts
-In the official DeepSeek web/app, we don't use system prompts but design two specific prompts for file upload and web search for better user experience. In addition, the temperature in web/app is 0.6. 
+In the official HelenaSeek web/app, we don't use system prompts but design two specific prompts for file upload and web search for better user experience. In addition, the temperature in web/app is 0.6. 
 
 For file upload, please follow the template to create prompts, where {file_name}, {file_content} and {question} are arguments. 
 ```
@@ -255,16 +255,16 @@ When responding, please keep the following points in mind:
 
 ## 7. License
 This code repository and the model weights are licensed under the [MIT License](https://github.com/deepseek-ai/DeepSeek-R1/blob/main/LICENSE).
-DeepSeek-R1 series support commercial use, allow for any modifications and derivative works, including, but not limited to, distillation for training other LLMs. Please note that:
-- DeepSeek-R1-Distill-Qwen-1.5B, DeepSeek-R1-Distill-Qwen-7B, DeepSeek-R1-Distill-Qwen-14B and DeepSeek-R1-Distill-Qwen-32B are derived from [Qwen-2.5 series](https://github.com/QwenLM/Qwen2.5), which are originally licensed under [Apache 2.0 License](https://huggingface.co/Qwen/Qwen2.5-1.5B/blob/main/LICENSE), and now finetuned with 800k samples curated with DeepSeek-R1.
-- DeepSeek-R1-Distill-Llama-8B is derived from Llama3.1-8B-Base and is originally licensed under [Llama3.1 license](https://huggingface.co/meta-llama/Llama-3.1-8B/blob/main/LICENSE).
-- DeepSeek-R1-Distill-Llama-70B is derived from Llama3.3-70B-Instruct and is originally licensed under [Llama3.3 license](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/blob/main/LICENSE).
+HelenaSeek-R1 series support commercial use, allow for any modifications and derivative works, including, but not limited to, distillation for training other LLMs. Please note that:
+- HelenaSeek-R1-Distill-Qwen-1.5B, HelenaSeek-R1-Distill-Qwen-7B, HelenaSeek-R1-Distill-Qwen-14B and HelenaSeek-R1-Distill-Qwen-32B are derived from [Qwen-2.5 series](https://github.com/QwenLM/Qwen2.5), which are originally licensed under [Apache 2.0 License](https://huggingface.co/Qwen/Qwen2.5-1.5B/blob/main/LICENSE), and now finetuned with 800k samples curated with HelenaSeek-R1.
+- HelenaSeek-R1-Distill-Llama-8B is derived from Llama3.1-8B-Base and is originally licensed under [Llama3.1 license](https://huggingface.co/meta-llama/Llama-3.1-8B/blob/main/LICENSE).
+- HelenaSeek-R1-Distill-Llama-70B is derived from Llama3.3-70B-Instruct and is originally licensed under [Llama3.3 license](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/blob/main/LICENSE).
 
 ## 8. Citation
 ```bibtex
-@misc{deepseekai2025deepseekr1incentivizingreasoningcapability,
-      title={DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning}, 
-      author={DeepSeek-AI},
+@misc{helenaseekai2025helenaseekr1incentivizingreasoningcapability,
+      title={HelenaSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning}, 
+      author={HelenaSeek-AI},
       year={2025},
       eprint={2501.12948},
       archivePrefix={arXiv},
